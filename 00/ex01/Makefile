@@ -6,11 +6,13 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/21 17:22:03 by avedrenn          #+#    #+#              #
-#    Updated: 2023/09/21 18:08:54 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/09/22 15:33:56 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
+
+INCLUDES = PhoneBook.hpp Contact.hpp
 
 SRC = phonebook.cpp
 
