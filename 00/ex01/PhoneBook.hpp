@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:01:16 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/09/22 15:38:55 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/09/28 08:57:30 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ class	PhoneBook
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void		add(Contact contact);
+		void		add(void);
 		void		search(void);
+		void		welcome(void) const;
 
 	private:
-		int			index;
-		Contact		contacts[8];
+		int			_index;
+		Contact		_contacts[8];
 
 
 

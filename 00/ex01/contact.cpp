@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:47:33 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/09/27 16:51:53 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/09/28 09:09:44 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 
 Contact::Contact(void)
 {
-	this->index = 0;
-	std::cout << "Welcome !" << std::endl;
-	std::cout << "Enter your first name : "; std::cin >> this->first_name;
-	std::cout << "Enter your last name : "; std::cin >> this->last_name;
-	std::cout << "Enter your nickname : "; std::cin >> this->nickname;
-	std::cout << "Enter your phone number : "; std::cin >> this->phone_num;
-	std::cout << "And now your darkest secret : "; std::cin >> this->secret;
+	std::cout << "Contact created" << std::endl;
 	return ;
 }
 
@@ -28,4 +22,22 @@ Contact::~Contact()
 {
 	std::cout << "Contact deleted" << std::endl;
 	return;
+}
+
+void	Contact::init()
+{
+	this->_first_name = this->_getInput("Enter your first name : ");
+	this->_last_name = this->_getInput("Enter your last name : ");
+	this->_nickname = this->_getInput("Enter your nickname : ");
+	this->_phone_num = this->_getInput("Enter your phone number : ");
+	this->_secret = this->_getInput("And now your darkest secret : ");
+}
+
+std::string	Contact::_getInput(std::string str)
+{
+	std::string input;
+
+	std::cout << str << std::endl;
+	std::getline(std::cin, input);
+	return (input);
 }
