@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:04:31 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 15:53:59 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:02:17 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ void	PhoneBook::search() const
 	}
 	std::cout << "Enter the id of the contact you want to display :" << std::endl;
 	std::cin >> id;
-	if (std::cin.fail() || id < 0 || id > this->_index - 1)
+	if (std::cin.fail() || id < 1 || id > this->_index)
 	{
 		std::cout << "Wrong id, what are you doing ? 🥹" << std::endl;
 		std::cin.clear();
 	}
 	else
-		this->_contacts[id].view_contact(id + 1);
+		this->_contacts[id - 1].view_contact(id);
 	return ;
 }
