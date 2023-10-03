@@ -6,12 +6,11 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:53:02 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 15:56:00 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:42:50 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 int main(void)
 {

@@ -6,18 +6,14 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:01:16 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 16:17:00 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:42:02 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <iostream>
-# include <string>
 # include "Contact.hpp"
-
-
 
 class	PhoneBook
 {
