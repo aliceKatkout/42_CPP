@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:01:16 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 14:13:03 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:17:00 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class	PhoneBook
 
 	private:
 		int			_index;
+		int			_oldest;
 		Contact		_contacts[8];
 
 
