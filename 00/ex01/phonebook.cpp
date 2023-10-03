@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:04:31 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 16:02:17 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:04:53 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 PhoneBook::PhoneBook(void) : _index(0)
 {
-	std::cout << "PhoneBook created" << std::endl;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "PhoneBook destroyed" << std::endl;
 	return ;
 }
 

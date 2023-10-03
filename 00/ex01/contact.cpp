@@ -6,21 +6,19 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:47:33 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 15:34:10 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:10:23 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void)
+Contact::Contact(void) : _first_name(""), _last_name(""),_nickname(""),_phone_num(""),_secret("")
 {
-	std::cout << "Contact created" << std::endl;
 	return ;
 }
 
 Contact::~Contact()
 {
-	std::cout << "Contact deleted" << std::endl;
 	return;
 }
 
@@ -36,11 +34,13 @@ void	Contact::init()
 
 std::string	Contact::_getInput(std::string str)
 {
-	std::string input;
+	std::string input = "";
 
-	std::cout << str << std::endl;
-	std::getline(std::cin, input);
-
+	while (input.empty())
+	{
+		std::cout << str << std::endl;
+		std::getline(std::cin, input);
+	}
 	return (input);
 }
 
