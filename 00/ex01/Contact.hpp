@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:21:54 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/09/28 09:10:23 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:33:31 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class	Contact
 {
@@ -23,6 +24,8 @@ class	Contact
 		~Contact(void);
 
 		void	init(void);
+		void	print(int i) const;
+		void	view_contact(int i) const;
 
 	private:
 		std::string	_first_name;
@@ -32,7 +35,7 @@ class	Contact
 		std::string	_secret;
 
 		std::string	_getInput(std::string str);
-
+		std::string	_print_ten(std::string str) const;
 };
 
 #endif
