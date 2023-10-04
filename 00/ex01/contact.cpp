@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:47:33 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 16:28:55 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:06:10 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,21 @@ Contact::~Contact()
 
 void	Contact::init()
 {
-	std::cin.ignore();
-	this->_first_name = this->_getInput("Enter your first name : ");
-	this->_last_name = this->_getInput("Enter your last name : ");
-	this->_nickname = this->_getInput("Enter your nickname : ");
-	this->_phone_num = this->_getInput("Enter your phone number : ");
-	this->_secret = this->_getInput("And now your darkest secret : ");
+	_first_name = _getInput("Enter your first name : ");
+	if (_first_name.empty())
+		exit(1);
+	_last_name = _getInput("Enter your last name : ");
+	if (_last_name.empty())
+		exit(1);
+	_nickname = _getInput("Enter your nickname : ");
+	if (_nickname.empty())
+		exit(1);
+	_phone_num = _getInput("Enter your phone number : ");
+	if (_phone_num.empty())
+		exit(1);
+	_secret = _getInput("And now your darkest secret : ");
+	if (_secret.empty())
+		exit(1);
 }
 
 std::string	Contact::_getInput(std::string str)
@@ -40,6 +49,8 @@ std::string	Contact::_getInput(std::string str)
 	{
 		std::cout << str << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (input);
 	}
 	return (input);
 }

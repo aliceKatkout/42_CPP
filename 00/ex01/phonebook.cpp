@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:04:31 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 16:24:35 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:08:52 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	PhoneBook::search() const
 	std::cin >> id;
 	if (std::cin.fail() || id < 1 || id > this->_index)
 	{
+		if (std::cin.eof())
+			exit(1);
 		std::cout << "Wrong id, what are you doing ? 🥹" << std::endl;
 		std::cin.clear();
 	}

@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:21:54 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/03 15:33:31 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:58:18 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <stdlib.h>
 
 class	Contact
 {
