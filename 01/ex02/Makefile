@@ -5,18 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/04 13:24:08 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/04 16:49:10 by avedrenn         ###   ########.fr        #
+#    Created: 2023/10/04 16:47:07 by avedrenn          #+#    #+#              #
+#    Updated: 2023/10/04 17:17:40 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brains
+NAME = bonjour
 
-SRCS = main.cpp Zombie.cpp zombieHorde.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
-
-INCLUDES = Zombie.hpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -26,7 +24,7 @@ $(NAME) : $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
-	c++ $(FLAGS) -c $< -I $(INCLUDES) -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS)
