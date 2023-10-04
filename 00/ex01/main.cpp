@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:53:02 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/04 11:47:19 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:37:31 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main(void)
 
 		std::cout << std::endl << "Enter an action: ";
 		std::getline(std::cin, input);
-
+		if (std::cin.eof())
+			exit(1);
 		if (input.compare("ADD") == 0)
 			phonebook.add();
 		else if(input.compare("SEARCH") == 0)
@@ -31,7 +32,8 @@ int main(void)
 			phonebook.search();
 			std::cin.ignore();
 		}
-	} while (input.compare("EXIT") || !std::cin.eof());
+
+	} while (input.compare("EXIT"));
 	std::cout << std::endl << "Bye 👋 " << std::endl;
 	return (0);
 }

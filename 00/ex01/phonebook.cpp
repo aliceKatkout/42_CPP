@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:04:31 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/04 12:08:52 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:32:59 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	PhoneBook::print() const
 	int	i;
 
 	i = 0;
-	while (this->_index > 0 && i <= this->_index)
+	while (this->_index > 0 && i < this->_index)
 	{
 		this->_contacts[i].print(i + 1);
 		i ++;
