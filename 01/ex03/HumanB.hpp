@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:42:22 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/04 18:00:52 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/06 14:40:00 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class HumanB
 		~HumanB();
 
 		void	attack();
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon &weapon);
 
 	private :
-		Weapon		_weapon;
+		Weapon		*_weapon;
 		std::string	_name;
 
 };
