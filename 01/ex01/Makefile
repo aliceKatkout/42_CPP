@@ -6,7 +6,7 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 13:24:08 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/04 16:49:10 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/10/04 17:57:37 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ $(NAME) : $(OBJS)
 	c++ $(FLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
-	c++ $(FLAGS) -c $< -I $(INCLUDES) -o $@
+	c++ $(FLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS)
