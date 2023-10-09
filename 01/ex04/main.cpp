@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:09:07 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/09 11:52:33 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:01:40 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ int	main(int argc, char** argv)
 
 	in.close();
 	out.close();
+	return (0);
 }
