@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:01:48 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/09 14:09:47 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:09:59 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ class Harl
 		~Harl();
 
 		void	complain( std::string level );
+		void	setLevel(int i);
+		void	filter();
 
 	private :
-		void	debug( void );
-		void	info( void );
-		void	warning( void );
-		void	error( void );
+		int		_level;
+
+		void	_debug( void );
+		void	_info( void );
+		void	_warning( void );
+		void	_error( void );
 };
 
 #endif
