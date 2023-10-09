@@ -6,15 +6,15 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:15:14 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/09 16:34:16 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:44:48 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-std::ostream	&operator<<(std::ostream os, Fixed &f)
+std::ostream	&operator<<(std::ostream &os, Fixed &f)
 {
-	return (os << f.)
+	return (os << f.getRawBits());
 }
 
 int main( void )
@@ -28,9 +28,9 @@ int main( void )
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+/* 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl; */
 	return 0;
 }

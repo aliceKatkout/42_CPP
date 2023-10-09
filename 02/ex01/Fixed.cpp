@@ -6,11 +6,16 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:36:35 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/09 16:35:51 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:41:51 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+Fixed::Fixed() : _nb(0)
+{
+	std::cout << "Constructor called" << std::endl;
+}
 
 Fixed::Fixed(const int i)
 {
