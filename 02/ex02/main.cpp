@@ -6,13 +6,11 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:15:14 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 17:45:37 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:59:58 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-
 
 int main( void )
 {
@@ -27,5 +25,7 @@ int main( void )
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 
+	std::cout << "max entre " << a << " et " << b << "   ->   " <<  Fixed::max( a, b ) << std::endl;
+	std::cout << "min entre " << a << " et " << b << "   ->   " << Fixed::min( a, b ) << std::endl;
 	return 0;
 }
