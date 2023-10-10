@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:16:06 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 16:37:40 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:46:03 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ class Fixed
 		const static int	_static_frac = 8;
 };
 
+std::ostream	&operator<<(std::ostream &os, Fixed const &f);
 
 #endif

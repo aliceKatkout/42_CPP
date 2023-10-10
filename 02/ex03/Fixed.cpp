@@ -6,23 +6,15 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:36:35 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 17:45:51 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:06:26 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _value(0) {};
-
-Fixed::Fixed(const int i)
-{
-	_value = i << _static_frac;
-}
-
-Fixed::Fixed(const float f)
-{
-	_value = roundf(f * ( 1 << _static_frac ));
-}
+Fixed::Fixed(const int i) : _value(i << _static_frac) {};
+Fixed::Fixed(const float f) : _value(roundf(f * ( 1 << _static_frac ))) {};
 
 Fixed::Fixed(const Fixed & obj)
 {
@@ -55,11 +47,6 @@ Fixed	&Fixed::operator=(const Fixed &obj)
 {
 	_value = obj._value;
 	return (*this);
-}
-
-std::ostream	&operator<<(std::ostream &os, Fixed const &f)
-{
-	return (os << f.toFloat());
 }
 
 bool	Fixed::operator>(const Fixed &obj)

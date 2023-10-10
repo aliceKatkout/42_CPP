@@ -6,16 +6,13 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:15:14 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 16:37:08 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:45:37 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-std::ostream	&operator<<(std::ostream &os, Fixed const &f)
-{
-	return (os << f.toFloat());
-}
+
 
 int main( void )
 {
@@ -29,6 +26,6 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
-	
+
 	return 0;
 }

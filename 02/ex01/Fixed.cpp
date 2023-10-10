@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:36:35 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 13:52:50 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:46:43 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,9 @@ Fixed & Fixed::operator=(const Fixed & f)
 
 	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
+}
+
+std::ostream	&operator<<(std::ostream &os, Fixed const &f)
+{
+	return (os << f.toFloat());
 }

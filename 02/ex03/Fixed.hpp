@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:16:06 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 17:47:30 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:37:40 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,29 @@ class Fixed
 
 		Fixed	(const Fixed &obj);
 
-		Fixed&	operator=(const Fixed&);
+		Fixed&	operator = (const Fixed &obj);
+
+		bool	operator > (const Fixed &obj);
+		bool	operator < (const Fixed &obj);
+		bool	operator >= (const Fixed &obj);
+		bool	operator <= (const Fixed &obj);
+		bool	operator == (const Fixed &obj);
+		bool	operator != (const Fixed &obj);
+
+		Fixed	operator + (const Fixed &obj) const;
+		Fixed	operator - (const Fixed &obj) const;
+		Fixed	operator * (const Fixed &obj) const;
+		Fixed	operator / (const Fixed &obj) const;
+
+		Fixed&	operator ++ ();
+		Fixed&	operator ++ (int);
+		Fixed&	operator -- ();
+		Fixed&	operator -- (int);
+
+		static Fixed& min( Fixed &a, Fixed &b );
+		static const Fixed& min( const Fixed &a, const Fixed &b );
+		static Fixed& max( Fixed &a, Fixed &b );
+		static const Fixed& max( const Fixed &a, const Fixed &b );
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
@@ -38,6 +60,5 @@ class Fixed
 		const static int	_static_frac = 8;
 };
 
-std::ostream	&operator<<(std::ostream &os, Fixed const &f);
 
 #endif
