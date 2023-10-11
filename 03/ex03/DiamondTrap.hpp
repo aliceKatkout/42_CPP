@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:33:48 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 15:44:31 by avedrenn         ###   ########.fr       */
+/*   Created: 2023/10/11 16:04:15 by avedrenn          #+#    #+#             */
+/*   Updated: 2023/10/11 16:32:45 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public :
-		ScavTrap(std::string name);
-		~ScavTrap();
+		DiamondTrap(std::string name);
+		~DiamondTrap();
 
-		void guardGate();
+		void	whoAmI();
+
+	private :
+		std::string	_name;
+
 };
 
 #endif

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:33:48 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 15:44:31 by avedrenn         ###   ########.fr       */
+/*   Created: 2023/10/10 18:06:11 by avedrenn          #+#    #+#             */
+/*   Updated: 2023/10/11 16:41:25 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "DiamondTrap.hpp"
 
-# include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int	main()
 {
-	public :
-		ScavTrap(std::string name);
-		~ScavTrap();
+	DiamondTrap a("Billy");
 
-		void guardGate();
-};
 
-#endif
+
+	return 0;
+}

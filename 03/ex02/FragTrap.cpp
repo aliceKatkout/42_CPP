@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:33:42 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 15:48:32 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:02:19 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	setHit(100);
-	setDamage(20);
-	setEnergy(50);
-	std::cout << CYAN << "ScavTrap " << getName() << " is with us." << RESET << std::endl;
+	setDamage(30);
+	setEnergy(100);
+	std::cout << BLUE << "FragTrap " << getName() << " is with us." << RESET << std::endl;
 }
 
-ScavTrap::~ScavTrap() {
-	std::cout << MAGENTA << "ScavTrap " << getName() << " has left this world." << RESET << std::endl;
+FragTrap::~FragTrap() {
+	std::cout << YELLOW << "FragTrap " << getName() << " has left this world." << RESET << std::endl;
 }
 
-void	ScavTrap::guardGate() {
-	std::cout << getName() << " is now in gate keeper mode." << std::endl;
+void	FragTrap::highFivesGuys() {
+	std::cout << getName() << " : High five ? 🙏" << std::endl;
 }

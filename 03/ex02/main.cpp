@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 14:33:48 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 15:44:31 by avedrenn         ###   ########.fr       */
+/*   Created: 2023/10/10 18:06:11 by avedrenn          #+#    #+#             */
+/*   Updated: 2023/10/11 16:00:00 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "FragTrap.hpp"
 
-# include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap
+int	main()
 {
-	public :
-		ScavTrap(std::string name);
-		~ScavTrap();
+	ClapTrap	a("Alex");
+	ClapTrap	b("Player 2");
+	ScavTrap	s("Guardian Lisa");
+	FragTrap	f("Nice guy Harry");
 
-		void guardGate();
-};
+	a.attack("Jul");
+	b.takeDamage(10);
+	a.beRepaired(10);
+	s.attack("void");
+	s.guardGate();
+	f.highFivesGuys();
 
-#endif
+	return 0;
+}
