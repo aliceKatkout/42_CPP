@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 18:06:11 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 12:31:40 by avedrenn         ###   ########.fr       */
+/*   Created: 2023/10/10 18:06:49 by avedrenn          #+#    #+#             */
+/*   Updated: 2023/10/10 18:12:15 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-int	main()
+# include <iostream>
+
+class ClapTrap
 {
-	ClapTrap	a("Alex");
-	ClapTrap	b("Player 2");
+	public :
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(ClapTrap &obj);
+		~ClapTrap();
 
-	a.attack("Jul");
-	b.takeDamage(10);
-	a.beRepaired(10);
+		void	attack(const std::string &target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 
-	return 0;
-}
+	private :
+		std::string	_name;
+		int			_hit;
+		int			_energy;
+		int			_damage;
+
+};
+
+#endif
