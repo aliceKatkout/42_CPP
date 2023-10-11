@@ -6,17 +6,17 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:36:58 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/11 12:22:52 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/10/11 15:25:52 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = clapTrap
+NAME = scavTrap
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-INCLUDES = clapTrap.hpp
+INCLUDES = ClapTrap.hpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
