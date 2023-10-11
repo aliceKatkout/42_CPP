@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:15:14 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 17:59:58 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:23:19 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ int main( void )
 
 	std::cout << "max entre " << a << " et " << b << "   ->   " <<  Fixed::max( a, b ) << std::endl;
 	std::cout << "min entre " << a << " et " << b << "   ->   " << Fixed::min( a, b ) << std::endl;
+
+	Fixed c(20);
+
+	std::cout << "c : " << c << ", b : " << b << ", c + b : " << c + b << std::endl;
 	return 0;
 }
