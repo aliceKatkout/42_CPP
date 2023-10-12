@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:09:07 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/09 12:01:40 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:02:07 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_replace(std::string &str, std::string s1, std::string s2)
 	pos = 0;
 	old_len = s1.length();
 	new_len = s2.length();
-	if (!old_len && !new_len)
+	if (!old_len || !new_len)
 		return ;
 	pos = str.find(s1, pos);
 	while (pos != std::string::npos)

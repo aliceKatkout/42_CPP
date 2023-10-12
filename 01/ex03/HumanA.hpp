@@ -6,14 +6,14 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:42:22 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/06 15:30:04 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:59:35 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_A_HPP
 # define HUMAN_A_HPP
 
-#include "Weapon.hpp"
+# include "Weapon.hpp"
 
 class HumanA
 {

@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:12:40 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/04 16:28:14 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:07:45 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ Zombie::Zombie()
 	_name = "Mother";
 	return ;
 }
+
+Zombie::Zombie(std::string name) : _name(name) {};
 
 Zombie::~Zombie()
 {

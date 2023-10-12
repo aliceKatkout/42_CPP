@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 17:37:44 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/06 15:32:23 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:57:46 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Weapon
 		~Weapon();
 
 		const std::string		&getType() const;
-		void			setType(std::string new_type);
+		void					setType(std::string new_type);
 
 	private :
 		std::string	_type;
