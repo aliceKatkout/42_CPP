@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:16:06 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 16:37:40 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:47:27 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ class Fixed
 		Fixed	operator / (const Fixed &obj) const;
 
 		Fixed&	operator ++ ();
-		Fixed&	operator ++ (int);
+		Fixed	operator ++ (int);
 		Fixed&	operator -- ();
-		Fixed&	operator -- (int);
+		Fixed	operator -- (int);
 
 		static Fixed& min( Fixed &a, Fixed &b );
 		static const Fixed& min( const Fixed &a, const Fixed &b );

@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:33:42 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 15:48:32 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 14:19:18 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ ScavTrap::~ScavTrap() {
 }
 
 void	ScavTrap::guardGate() {
-	std::cout << getName() << " is now in gate keeper mode." << std::endl;
+	std::cout << _name << " is now in gate keeper mode." << std::endl;
 }

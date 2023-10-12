@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:36:35 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/10 17:45:51 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:35:09 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Fixed::setRawBits(int const raw)
 
 Fixed	&Fixed::operator=(const Fixed &obj)
 {
-	_value = obj._value;
+	_value = obj.getRawBits();
 	return (*this);
 }
 
@@ -124,29 +124,29 @@ Fixed	Fixed::operator / (const Fixed &obj) const
 	return Fixed(this->toFloat() / obj.toFloat());
 };
 
-Fixed&	Fixed::operator ++ ()
+Fixed&	Fixed::operator ++ (void)
 {
-	_value++;
+	_value += 1;
 	return (*this);
 };
 
-Fixed&	Fixed::operator ++ (int)
+Fixed	Fixed::operator ++ (int)
 {
-	Fixed	&tmp(*this);
-	++tmp._value;
+	Fixed	tmp(*this);
+	++(*this);
 	return (tmp);
 };
 
 Fixed&	Fixed::operator -- ()
 {
-	_value--;
+	_value -= 1;
 	return (*this);
 };
 
-Fixed&	Fixed::operator -- (int)
+Fixed	Fixed::operator -- (int)
 {
-	Fixed	&tmp(*this);
-	--tmp._value;
+	Fixed	tmp(*this);
+	--(*this);
 	return (tmp);
 };
 
