@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:06:49 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 15:46:11 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:49:01 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class ClapTrap
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 
-	private :
+	protected :
 		std::string		_name;
 		int				_hit;
 		int				_energy;

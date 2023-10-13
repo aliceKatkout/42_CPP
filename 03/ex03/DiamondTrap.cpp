@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:04:19 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/11 16:43:32 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:09:43 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name + "_clap_name"), Frag
 	FragTrap::setHit(100);
 	FragTrap::setDamage(20);
 	ScavTrap::setEnergy(50);
-	std::cout << CYAN << "DiamondTrap " << ScavTrap::getName() << " is with us." << RESET << std::endl;
+	std::cout << RED << "DiamondTrap " << _name << " is with us." << RESET << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << RED << "DiamondTrap " << ScavTrap::getName() << " has left the game." << RESET << std::endl;
+	std::cout << RED << "DiamondTrap " << _name << " has left the game." << RESET << std::endl;
 }
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap " << ScavTrap::getName() << " has another name : " << std::endl;
+	std::cout << "DiamondTrap " << _name << " has another name : " << std::endl;
 }
