@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:33:42 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 12:21:38 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:39:29 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ FragTrap::FragTrap() : ClapTrap() {
 
 FragTrap::~FragTrap() {
 	std::cout << YELLOW << "FragTrap " << _name << " has left this world." << RESET << std::endl;
+}
+
+FragTrap::FragTrap(FragTrap &other) {
+	other = (*this);
+	std::cout  << CYAN << _name << " , a copy of " << other._name << "join the fight !" << RESET << std::endl;
+}
+
+FragTrap	&FragTrap::operator=(const FragTrap	&other) {
+	_name = other._name;
+	_hit = other._hit;
+	_damage = other._damage;
+	_energy = other._energy;
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys() {

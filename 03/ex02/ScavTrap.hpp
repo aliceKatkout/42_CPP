@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:33:48 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 12:19:08 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:38:17 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ class ScavTrap : public ClapTrap
 	public :
 		ScavTrap();
 		ScavTrap(std::string name);
+		ScavTrap(ScavTrap &other);
 		~ScavTrap();
+
+		ScavTrap	&operator=(const ScavTrap	&other);
 
 		void guardGate();
 };

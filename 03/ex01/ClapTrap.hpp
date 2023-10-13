@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:06:49 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/12 14:17:37 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:28:55 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class ClapTrap
 		ClapTrap(ClapTrap &obj);
 		~ClapTrap();
 
+		ClapTrap	&operator=(const ClapTrap	&other);
 		std::string	getName() const;
 		int			getEnergy() const;
 		int			getHit() const;

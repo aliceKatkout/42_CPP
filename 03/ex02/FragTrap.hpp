@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:33:48 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 12:21:50 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:40:00 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class FragTrap : public ClapTrap
 	public :
 		FragTrap();
 		FragTrap(std::string name);
+		FragTrap(FragTrap &other);
 		~FragTrap();
+
+		FragTrap	&operator=(const FragTrap	&other);
 
 		void highFivesGuys(void);
 };

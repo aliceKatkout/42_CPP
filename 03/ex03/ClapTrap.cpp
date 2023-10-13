@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:16:11 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 12:07:43 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:32:51 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ ClapTrap::ClapTrap(ClapTrap &obj) : _name(obj._name), _hit(obj._hit), _energy(ob
 
 ClapTrap::~ClapTrap() {
 	std::cout << GREEN << _name << " has left this world." << RESET << std::endl;
+}
+
+ClapTrap	&ClapTrap::operator=(const ClapTrap	&other) {
+	_name = other._name;
+	_hit = other._hit;
+	_damage = other._damage;
+	_energy = other._energy;
+	return (*this);
 }
 
 /* GETTERS */
