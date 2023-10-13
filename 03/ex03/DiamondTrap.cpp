@@ -6,24 +6,24 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:04:19 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 13:48:16 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:08:48 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
-	FragTrap::setHit(100);
-	FragTrap::setDamage(20);
-	ScavTrap::setEnergy(50);
+	setHit(FragTrap::_hit);
+	setDamage(FragTrap::_damage);
+	setEnergy(ScavTrap::_energy);
 	std::cout << RED << "DiamondTrap " << _name << " is with us." << RESET << std::endl;
 };
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name), _name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(ClapTrap::_name), FragTrap(ClapTrap::_name), _name(name)
 {
-	FragTrap::setHit(100);
-	FragTrap::setDamage(20);
-	ScavTrap::setEnergy(50);
+	setHit(FragTrap::_hit);
+	setDamage(FragTrap::_damage);
+	setEnergy(ScavTrap::_energy);
 	std::cout << RED << "DiamondTrap " << _name << " is with us." << RESET << std::endl;
 }
 
@@ -38,6 +38,7 @@ DiamondTrap::DiamondTrap(DiamondTrap &other) {
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap &other) {
+	ClapTrap::_name = other.ClapTrap::_name;
 	_name = other._name;
 	_hit = other._hit;
 	_damage = other._damage;
