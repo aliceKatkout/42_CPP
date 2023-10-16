@@ -14,19 +14,20 @@
 
 Brain::Brain() {
 	//to do
-	std::cout << "An Brain is born." << std::endl;
+	std::cout << "A brain has been formed." << std::endl;
 };
 
 Brain::Brain(Brain &other) {
 	(*this) = other;
-	std::cout << "An Brain is born, cloned." << std::endl;
+	std::cout << "A brain has been formed., cloned." << std::endl;
 }
 
 Brain::~Brain() {
-	std::cout << "An Brain is dead." << std::endl;
+	std::cout << "A brain has been disintegrated." << std::endl;
 }
 
 Brain	&Brain::operator=(const Brain &other) {
-	//to do
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = other._ideas[i];
 	return (*this);
 }

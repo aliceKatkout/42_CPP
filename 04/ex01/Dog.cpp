@@ -14,6 +14,7 @@
 
 Dog::Dog(): Animal() {
 	_type = "Dog";
+	_brain = new Brain();
 	std::cout << "A Dog is born." << std::endl;
 };
 
@@ -23,6 +24,7 @@ Dog::Dog(Dog &other) {
 }
 
 Dog::~Dog() {
+	delete _brain;
 	std::cout << "A Dog is dead." << std::endl;
 }
 

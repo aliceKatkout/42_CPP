@@ -14,6 +14,7 @@
 
 Cat::Cat() : Animal() {
 	_type = "Cat";
+	_brain = new Brain();
 	std::cout << "A Cat is born." << std::endl;
 };
 
@@ -23,6 +24,7 @@ Cat::Cat(Cat &other) {
 }
 
 Cat::~Cat() {
+	delete _brain;
 	std::cout << "A Cat is dead." << std::endl;
 }
 

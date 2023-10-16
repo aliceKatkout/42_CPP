@@ -25,7 +25,7 @@ class Brain
 		Brain	&operator=(const Brain &other);
 
 	protected :
-		std::string		[100]_ideas;
+		std::string		_ideas[100];
 };
 
 #endif
