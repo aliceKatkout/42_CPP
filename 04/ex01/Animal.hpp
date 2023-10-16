@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:48:22 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 16:57:13 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:07:21 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Animal
 {
 	public :
 		Animal();
-		Animal(Animal &other);
+		Animal(const Animal &other);
 		virtual ~Animal();
 
 		Animal	&operator=(const Animal &other);

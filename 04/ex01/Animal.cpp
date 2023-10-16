@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:47:55 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/13 17:06:14 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:07:16 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Animal::Animal() : _type("Undefined beast") {
 	std::cout << "An animal is born." << std::endl;
 };
 
-Animal::Animal(Animal &other) {
+Animal::Animal(const Animal &other) {
 	(*this) = other;
 	std::cout << "An animal is born, cloned." << std::endl;
 }

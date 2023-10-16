@@ -6,12 +6,16 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:03:16 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/16 12:18:40 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:25:49 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cat.hpp"
 # include "Dog.hpp"
+
+/* En programmation orientée objet (POO), une classe abstraite
+est une classe si et seulement si elle n'est pas instanciable.
+Elle sert de base à d'autres classes dérivées (héritées). */
 
 int main()
 {
@@ -46,5 +50,7 @@ int main()
 	for (int i = 0; i < 20; i++)
 		delete animals[i];
 
+/*  	const Animal *anomaly;
+	anomaly = new Animal(); */
 	return 0;
 }
