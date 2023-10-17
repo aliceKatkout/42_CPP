@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 15:43:05 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/16 15:58:22 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:58:17 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ class Ice : public AMateria
 	public :
 		Ice();
 		Ice(const Ice &other);
-		~Ice();
+		virtual ~Ice();
 
 		Ice	&operator=(const Ice &other);
 
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
 };
 
 #endif

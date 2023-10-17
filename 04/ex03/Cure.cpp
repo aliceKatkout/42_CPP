@@ -20,3 +20,15 @@ Cure &Cure::operator=(const Cure &other) {
 	_type = other.getType();
 	return (*this);
 }
+
+AMateria*	Cure::clone() const {
+	AMateria	*clone;
+
+	clone = new Cure();
+	return (clone);
+}
+
+void		Cure::use(ICharacter& target) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	delete (this);
+}

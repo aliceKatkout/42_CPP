@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 15:43:05 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/16 15:58:22 by avedrenn         ###   ########.fr       */
+/*   Created: 2023/10/17 13:47:28 by avedrenn          #+#    #+#             */
+/*   Updated: 2023/10/17 13:49:37 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef MATERIASRC_HPP
+# define MATERIASRC_HPP
 
 # include "AMateria.hpp"
 
-class Cure : public AMateria
+class MateriaSource : public AMateria
 {
-	public :
-		Cure();
-		Cure(const Cure &other);
-		virtual ~Cure();
 
-		Cure	&operator=(const Cure &other);
-
-		AMateria*	clone() const;
-		void		use(ICharacter& target);
 };
 
 #endif
