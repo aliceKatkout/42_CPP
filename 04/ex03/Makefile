@@ -6,13 +6,13 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:36:58 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/16 17:10:29 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/10/17 16:40:43 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = materia
 
-SRCS = main.cpp AMateria.cpp ICharacter.cpp Character.cpp Cure.cpp Ice.cpp
+SRCS = main.cpp AMateria.cpp ICharacter.cpp Character.cpp Cure.cpp Ice.cpp IMateriaSource.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

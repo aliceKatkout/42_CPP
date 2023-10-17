@@ -6,20 +6,24 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:56:01 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/16 17:34:23 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:29:42 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() : _name("Anonymous"), _idx_max(0) {};
+Character::Character() : _name("Anonymous"), _idx_max(0) {
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = 0;
+};
 Character::Character(std::string name) : _name(name), _idx_max(0) {};
 Character::Character(const Character &other) {
 	_name = other._name;
 	_idx_max = 0;
-	//inventory;
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = other._inventory[i]->clone();
 }
-//Character::~Character();
+Character::~Character() {};
 
 Character	&Character::operator=(const Character &other) {
 	_name = other._name;
@@ -38,6 +42,7 @@ std::string const 	&Character::getName() const {
 
 void	Character::equip(AMateria* m) {
 	_inventory[_idx_max++] = m;
+	std::cout << m->getType() << " equiped at index " << _idx_max - 1 << " by " << _name << std::endl;
 }
 
 void	Character::unequip(int idx) {

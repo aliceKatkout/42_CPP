@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:29:23 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/16 14:46:18 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:33:31 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,7 @@ void	AMateria::setType(const std::string type) {
 std::string const &AMateria::getType() const {
 	return (_type);
 }
+
+void	AMateria::use(ICharacter& target) {
+	(void) target;
+};
