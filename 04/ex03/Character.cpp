@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:56:01 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/17 16:29:42 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:59:42 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,37 @@ std::string const 	&Character::getName() const {
 }
 
 void	Character::equip(AMateria* m) {
-	_inventory[_idx_max++] = m;
-	std::cout << m->getType() << " equiped at index " << _idx_max - 1 << " by " << _name << std::endl;
+	int i = 0;
+	if (_idx_max < 4) {
+		_inventory[_idx_max++] = m;
+		std::cout << m->getType() << " equiped at index " << _idx_max - 1 << " by " << _name << std::endl;
+	} else {
+		while ( _inventory[i] != 0)
+			i ++;
+		if (i < 4) {
+			_inventory[i] = m;
+			std::cout << m->getType() << " equiped at index " << i << " by " << _name << std::endl;
+		} else {
+			std::cout <<  "Inventory of "<< _name << " is full ... "<< std::endl;
+		}
+	}
 }
 
 void	Character::unequip(int idx) {
-	_inventory[idx] = 0;
+	if (idx < 0 || idx > 4)
+		std::cout << "unequip : Wrong index \n";
+	else
+		_inventory[idx] = 0;
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	std::cout << _name << " use " << _inventory[idx]->getType() << " on " << target.getName() << std::endl;
+	if (idx < 0 || idx > 4)
+		std::cout << "unequip : Wrong index \n";
+	else if (_inventory[idx])
+	{
+		_inventory[idx]->use(target);
+		_inventory[idx] = 0;
+	}
+	else
+		std::cout << "use : There is no materia at this index ... \n";
 }

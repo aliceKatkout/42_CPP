@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:38:32 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/17 16:40:14 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:14:39 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ MateriaSource::MateriaSource() : _idx(0) {
 MateriaSource::MateriaSource(const MateriaSource &other) {
 	(*this) = other;
 };
-MateriaSource::~MateriaSource() {};
+MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++) {
+		if (_stock[i])
+			delete _stock[i];
+	}
+};
 
 MateriaSource	&MateriaSource::operator=(const MateriaSource &other) {
 	_idx = other._idx;
@@ -34,11 +39,13 @@ void	MateriaSource::learnMateria(AMateria *m) {
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type) {
+	AMateria	* res = 0;
 	for (int i = _idx; i >= 0 ; i --) {
 		if (_stock[i])
 			std::cout << "i = " << i << ", type = " << _stock[i]->getType() << std::endl;
-		if (_stock[i] && _stock[i]->getType() == type)
-			return (_stock[i]->clone());
+		if (_stock[i] && _stock[i]->getType() == type) {
+			res = _stock[i]->clone();
+		}
 	}
-	return (0);
+	return (res);
 }

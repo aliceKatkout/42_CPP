@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:02:27 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/16 17:15:06 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/19 12:17:57 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AMateria
 	public:
 		AMateria(std::string const & type);
 		AMateria(const AMateria &other);
-		~AMateria();
+		virtual ~AMateria();
 
 		AMateria	&operator=(const AMateria &other);
 
