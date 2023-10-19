@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:59:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/19 14:14:03 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:25:26 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,20 @@ void ft_tests()
 	charles->equip(tmp2);
 	tmp3 = src->createMateria("ice");
 	charles->equip(tmp3);
+	//tmp = src->createMateria("earth");
+	//charles->equip(tmp);
+	Character	*charles_copy = new Character(*charles);
+	std::cout << std::endl;
 
+	// Deep copy vs its source character
+	std::cout << "DEEP COPY VS SOURCE:" << std::endl;
+	std::cout << "-----------------------" << std::endl;
 
+	tmp = src->createMateria("cure");
+	charles_copy->equip(tmp);
+	tmp = src->createMateria("ice");
+	charles_copy->equip(tmp);
+	charles_copy->unequip(0);
 	std::cout << std::endl;
 
 	charles->use(0, *bob);
@@ -73,15 +85,18 @@ void ft_tests()
 	charles->use(2, *bob);
 	charles->use(3, *bob);
 	std::cout << std::endl;
-
+	charles_copy->use(0, *bob);
+	charles_copy->use(1, *bob);
+	charles_copy->use(2, *bob);
+	charles_copy->use(3, *bob);
+	std::cout << std::endl;
 
 	// Unequip tests:
 	std::cout << "UNEQUIP:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
-	me->equip(tmp3);
 	me->unequip(-1); // unequip an empty / non existing slot in inventory
 	me->unequip(18);
-	me->unequip(0);
+	me->unequip(3);
 	std::cout << std::endl;
 
 
@@ -92,6 +107,7 @@ void ft_tests()
 	delete me;
 	delete src;
 	delete charles;
+	
 	std::cout << std::endl;
 }
 

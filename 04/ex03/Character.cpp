@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:56:01 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/19 14:14:51 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:27:07 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,21 @@ Character::Character(const Character &other) {
 	_name = other._name;
 	_idx_max = 0;
 	for (int i = 0; i < 4; i++)
+		_inventory[i] = 0;
+	for (int i = 0; i < 4; i++)
 	{
 		if (other._inventory[i])
+		{
+			delete	_inventory[i];
 			_inventory[i] = other._inventory[i]->clone();
+		}
 		else
 			_inventory[i] = 0;
 	}
 }
 Character::~Character() {
 	std::cout << "Deleting " << _name << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		if (_inventory[i] != 0)
-			delete	_inventory[i];
-	}
+
 };
 
 Character	&Character::operator=(const Character &other) {
