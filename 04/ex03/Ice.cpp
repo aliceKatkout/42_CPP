@@ -6,14 +6,14 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:49:50 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/20 14:47:48 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/20 15:05:02 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice") {};
-//Ice::Ice(const Ice &other) : AMateria("ice") {};
+Ice::Ice(const Ice &other) : AMateria(other._type) {};
 Ice::~Ice() {};
 
 Ice &Ice::operator=(const Ice &other) {
