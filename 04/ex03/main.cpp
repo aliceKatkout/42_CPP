@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:59:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/19 14:25:26 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:51:05 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void ft_tests()
 	AMateria	*tmp1;
 	AMateria	*tmp2;
 	AMateria	*tmp3;
+	AMateria	*tmp4;
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
@@ -64,20 +65,22 @@ void ft_tests()
 	charles->equip(tmp2);
 	tmp3 = src->createMateria("ice");
 	charles->equip(tmp3);
-	//tmp = src->createMateria("earth");
-	//charles->equip(tmp);
+	tmp = src->createMateria("earth");
+	charles->equip(tmp);
 	Character	*charles_copy = new Character(*charles);
 	std::cout << std::endl;
 
 	// Deep copy vs its source character
 	std::cout << "DEEP COPY VS SOURCE:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
-
+	charles->unequip(0); // this shows that they have different materia pointers equipped
+	tmp4 = charles_copy->getMateriaAdress(1);
+	charles_copy->unequip(1); //this will produce a leak if we don't store the address somewhere else before
+	delete tmp4;
 	tmp = src->createMateria("cure");
 	charles_copy->equip(tmp);
 	tmp = src->createMateria("ice");
 	charles_copy->equip(tmp);
-	charles_copy->unequip(0);
 	std::cout << std::endl;
 
 	charles->use(0, *bob);
@@ -98,7 +101,10 @@ void ft_tests()
 	me->unequip(18);
 	me->unequip(3);
 	std::cout << std::endl;
-
+	me->use(1, *charles);
+	me->unequip(1); // Unequip a valid slot in inventory (cure unequipped)
+	me->use(1, *charles); // try to use it
+	std::cout << std::endl;
 
 	// Destructors
 	std::cout << "DESTRUCTORS:" << std::endl;
@@ -107,8 +113,11 @@ void ft_tests()
 	delete me;
 	delete src;
 	delete charles;
-	
+	delete charles_copy;
+	delete tmp1;
+	delete tmp2;
 	std::cout << std::endl;
+	//system("leaks ex03");
 }
 
 int main()
@@ -126,6 +135,7 @@ int main()
 	me->use(0, *bob);
 	me->unequip(1);
 	delete tmp;
+
 
 
 	delete bob;

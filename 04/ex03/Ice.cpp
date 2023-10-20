@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:49:50 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/17 14:58:10 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:47:48 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,4 @@ AMateria*	Ice::clone() const {
 
 void		Ice::use(ICharacter& target) {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	delete (this);
 }

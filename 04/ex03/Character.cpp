@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:56:01 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/19 14:27:07 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:52:00 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ Character::Character(std::string name) : _name(name), _idx_max(0) {
 		_inventory[i] = 0;
 };
 Character::Character(const Character &other) {
-	_name = other._name;
-	_idx_max = 0;
-	for (int i = 0; i < 4; i++)
-		_inventory[i] = 0;
+	_name = other._name + "_copy";
+	_idx_max = other._idx_max;
 	for (int i = 0; i < 4; i++)
 	{
+		_inventory[i] = 0;
 		if (other._inventory[i])
-		{
-			delete	_inventory[i];
 			_inventory[i] = other._inventory[i]->clone();
-		}
-		else
-			_inventory[i] = 0;
+
 	}
 }
 Character::~Character() {
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] != 0)
+			delete _inventory[i];
+	}
 	std::cout << "Deleting " << _name << std::endl;
 
 };
@@ -46,7 +46,10 @@ Character	&Character::operator=(const Character &other) {
 	_idx_max = other._idx_max;
 	for (int i = 0; i < 4; i++)
 	{
-		_inventory[i] = other._inventory[i]->clone();
+		if (_inventory[i])
+			delete _inventory[i];
+		if (other._inventory[i])
+			_inventory[i] = other._inventory[i]->clone();
 	}
 	//inventory
 	return (*this);
@@ -64,7 +67,7 @@ void	Character::equip(AMateria* m) {
 		_inventory[_idx_max++] = m;
 		std::cout << m->getType() << " equiped at index " << _idx_max - 1 << " by " << _name << std::endl;
 	} else {
-		while ( _inventory[i] != 0 && i < 4)
+		while ( _inventory[i] != 0 && i <= 3)
 			i ++;
 		if (i < 4) {
 			_inventory[i] = m;
@@ -82,6 +85,8 @@ void	Character::unequip(int idx) {
 		std::cout << _name << " unequips " << _inventory[idx]->getType() << " and drops it !" << std::endl;
 		_inventory[idx] = 0;
 	}
+	else
+		std::cout << _name << " tries to unequip slot " << idx  << " but there is nothing here" << std::endl;
 }
 
 void	Character::use(int idx, ICharacter& target) {
@@ -90,8 +95,13 @@ void	Character::use(int idx, ICharacter& target) {
 	else if (_inventory[idx])
 	{
 		_inventory[idx]->use(target);
-		_inventory[idx] = 0;
 	}
 	else
 		std::cout << "use : There is no materia at this index ... \n";
+}
+
+AMateria	*Character::getMateriaAdress(int idx){
+	if (idx >= 0 && idx <= 3 && _inventory[idx] !=0)
+		return (_inventory[idx]);
+	return (NULL);
 }

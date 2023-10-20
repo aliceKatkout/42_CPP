@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:29:23 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/17 15:33:31 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:16:17 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ AMateria::AMateria(std::string const & type) : _type(type) {};
 AMateria::AMateria(const AMateria &other) {
 	(*this) = other;
 }
-AMateria::~AMateria() {};
+AMateria::~AMateria() {
+	std::cout << "Delete AMateria" << std::endl;
+};
 
 AMateria &AMateria::operator=(const AMateria &other) {
 	setType(other.getType());
