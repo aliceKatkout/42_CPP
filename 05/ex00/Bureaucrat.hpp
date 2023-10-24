@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:44:51 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/23 15:55:31 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:56:31 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Bureaucrat
 {
 	public :
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();

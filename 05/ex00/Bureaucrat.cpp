@@ -6,11 +6,13 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:56:56 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/23 15:56:17 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:56:46 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : _name("Anon"), _grade(75) {};
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
 

@@ -6,11 +6,13 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:56:56 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/23 15:56:17 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:48:51 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : _name("Anon"), _grade(75) {};
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
 
@@ -52,6 +54,25 @@ void	Bureaucrat::decrementGrade() {
 		throw GradeTooHighException();
 	if (_grade > 150)
 		throw GradeTooLowException();
+}
+
+
+void	Bureaucrat::signForm(Form &f) {
+	switch (f.beSigned(*this))
+	{
+		case 1:
+			std::cout << "Bureaucrat " << _name << " could have signed the form "
+				<< f.getName() << " but it's already signed !" << std::endl;
+			break;
+		case 2:
+			std::cout << "Bureaucrat " << _name << " signed the form "
+				<< f.getName() << " succesfully !" << std::endl;
+			break;
+		case 0:
+			std::cout << "Bureaucrat " << _name << " is not graded enough to sign the form "
+			<< f.getName() << " ..." << std::endl;
+			break;
+	}
 }
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat &b) {
