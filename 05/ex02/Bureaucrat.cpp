@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:56:56 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/24 16:38:07 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:38:49 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void	Bureaucrat::decrementGrade() {
 		throw GradeTooLowException();
 }
 
-
-void	Bureaucrat::signForm(Form &f) {
+void	Bureaucrat::signForm(AForm &f) {
 	try
 	{
 		switch (f.beSigned(*this))
@@ -73,7 +72,7 @@ void	Bureaucrat::signForm(Form &f) {
 			default:
 				break;
 		}
-	} catch	(Form::GradeTooLowException &e) {
+	} catch	(AForm::GradeTooLowException &e) {
 		std::cout << "Bureaucrat " << _name << " is not graded enough to sign the form "
 		<< f.getName() << " ..." << std::endl;
 	}
