@@ -6,13 +6,13 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:36:58 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/24 15:55:21 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/10/24 18:12:33 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrats
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 INCLUDES = Bureaucrat.hpp

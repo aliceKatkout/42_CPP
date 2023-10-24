@@ -29,6 +29,7 @@ AForm::AForm(const AForm &other) : _name(other._name), _sign_grade(other._sign_g
 }
 
 AForm::~AForm() {};
+
 AForm &AForm::operator=(const AForm &other) {
 	std::cout << "A AForm can't be equal to another AForm, too many const ..." << std::endl;
 	(void) other;
@@ -73,4 +74,13 @@ std::ostream	&operator<<(std::ostream &os, AForm &f) {
 	return (os << "AForm named " << f.getName() << " require a " << f.getSignGrade() <<
 	" grade to be signed, a " << f.getExecGrade() << " grade to be executed and is currently " <<
 	(f.isSigned() ? "signed." : "not signed.") << std::endl);
+}
+
+void	AForm::execute(Bureaucrat const &executor) const {
+	if (executor.getGrade() > _exec_grade)
+		throw AForm::GradeTooLowException();
+	else if (!_signed)
+		throw AForm::UnsignedFormException();
+	else
+		execConcrete();
 }
