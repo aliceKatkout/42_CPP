@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:00:18 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/25 11:46:24 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:48:26 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Form::Form(const Form &other) : _name(other._name), _sign_grade(other._sign_grad
 }
 
 Form::~Form() {};
+
 Form &Form::operator=(const Form &other) {
 	std::cout << "A form can't be equal to another form, too many const ..." << std::endl;
 	(void) other;
@@ -73,4 +74,12 @@ std::ostream	&operator<<(std::ostream &os, Form &f) {
 	return (os << "Form named " << f.getName() << " require a " << f.getSignGrade() <<
 	" grade to be signed, a " << f.getExecGrade() << " grade to be executed and is currently " <<
 	(f.isSigned() ? "signed." : "not signed.") << std::endl);
+}
+
+const char	*Form::GradeTooHighException::what () const throw()  {
+	return ("grade is too high");
+}
+
+const char	*Form::GradeTooLowException::what () const throw() {
+	return ("grade is too low");
 }

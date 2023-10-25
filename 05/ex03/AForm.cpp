@@ -84,3 +84,15 @@ void	AForm::execute(Bureaucrat const &executor) const {
 	else
 		execConcrete();
 }
+
+const char	*AForm::GradeTooHighException::what () const throw()  {
+	return ("Grade too high");
+}
+
+const char	*AForm::GradeTooLowException::what () const throw() {
+	return ("Grade too low");
+}
+
+const char	*AForm::UnsignedFormException::what () const throw() {
+	return ("Form is not signed");
+}

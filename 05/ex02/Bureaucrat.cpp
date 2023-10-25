@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:56:56 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/25 11:25:18 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:50:07 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,12 @@ void	Bureaucrat::executeForm(AForm const &form) {
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat &b) {
 	return (os << b.getName() << " bureaucrat grade " << b.getGrade() << std::endl);
+}
+
+const char	*Bureaucrat::GradeTooHighException::what () const throw() {
+	return ("grade is lower than 1");
+}
+
+const char	*Bureaucrat::GradeTooLowException::what () const throw() {
+	return ("grade is greater than 150");
 }
