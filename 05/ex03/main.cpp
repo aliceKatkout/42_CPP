@@ -6,14 +6,12 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:44:27 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/25 11:49:41 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:35:32 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void	sectionTitle(const std::string& title) {
 	std::cout	<< std::endl
@@ -31,33 +29,38 @@ int	main() {
 	Bureaucrat	burro("Burro", 1);
 	Bureaucrat	burretto("Burretto", 42);
 	std::cout << burro << burretto;
+	Intern		intern1;
 
 	try {
 		{
-			sectionTitle("shrubbery creation");
-			ShrubberyCreationForm form("Home");
-			testForm(burro, form);
+			sectionTitle("shrubbery creation via intern");
+			AForm *form = intern1.makeForm("shrubbery creation", "Home");
+			testForm(burro, *form);
+			delete form;
 		}
 		{
-			sectionTitle("robotomy request");
-			RobotomyRequestForm form("Bender");
-			testForm(burro, form);
+			sectionTitle("robotomy request via intern");
+			AForm *form = intern1.makeForm("robotomy request", "Bender");
+			testForm(burro, *form);
+			delete form;
 		}
 		{
-			sectionTitle("presidential pardon");
-			PresidentialPardonForm form("Ali");
-			testForm(burro, form);
-		}
-		PresidentialPardonForm form("Ali");
-		{
+			sectionTitle("presidential pardon via intern");
+			AForm *form = intern1.makeForm("presidential pardon", "Ali");
+			testForm(burro, *form);
+
+			form->setSigned(false);
+
 			sectionTitle("execute unsigned form");
-			std::cout << form;
-			burro.executeForm(form);
-		}
-		{
+			std::cout << *form;
+			burro.executeForm(*form);
+
+
 			sectionTitle("too low to execute");
-			burro.signForm(form);
-			burretto.executeForm(form);
+			burro.signForm(*form);
+			burretto.executeForm(*form);
+
+			delete form;
 		}
 	}
 	catch (std::exception& e) {
