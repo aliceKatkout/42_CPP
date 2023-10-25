@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:59:20 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/24 18:22:00 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:25:47 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {};
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &other) {
 	_target = other._target;
+	return (*this);
 }
 
 void	PresidentialPardonForm::execConcrete() const {

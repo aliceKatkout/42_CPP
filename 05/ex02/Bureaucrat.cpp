@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:56:56 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/24 16:38:49 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:25:18 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,19 @@ void	Bureaucrat::signForm(AForm &f) {
 	} catch	(AForm::GradeTooLowException &e) {
 		std::cout << "Bureaucrat " << _name << " is not graded enough to sign the form "
 		<< f.getName() << " ..." << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form) {
+	try {
+		form.execute(*this);
+	} catch (AForm::GradeTooLowException &e) {
+		std::cout << _name << " couldn't execute form " << form.getName() << std::endl;
+		std::cout << "Reason : " << e.what() << std::endl;
+	}
+	catch (AForm::UnsignedFormException &e) {
+		std::cout << _name << " couldn't execute form " << form.getName() << std::endl;
+		std::cout << "Reason : " << e.what() << std::endl;
 	}
 }
 

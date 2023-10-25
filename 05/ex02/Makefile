@@ -6,7 +6,7 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:36:58 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/24 18:12:33 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/10/25 11:44:46 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ clean :
 
 fclean : clean
 	rm -f $(NAME)
+	rm -f *_shrubbery
 
 re : fclean all
 

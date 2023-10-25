@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:59:20 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/24 18:26:27 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:26:10 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {};
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
 	_target = other._target;
+	return (*this);
 }
 
 void	RobotomyRequestForm::execConcrete() const {

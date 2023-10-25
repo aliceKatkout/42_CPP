@@ -41,14 +41,14 @@ class AForm
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char	*what () const throw() {
-					return ("grade is lower than 1");
+					return ("grade is too high");
 				}
 		};
 
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char	*what () const throw() {
-					return ("grade is greater than 150");
+					return ("grade is too low");
 				}
 		};
 

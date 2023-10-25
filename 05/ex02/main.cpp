@@ -6,20 +6,61 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:44:27 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/24 16:10:43 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:24:16 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main(void)
-{
-	Bureaucrat	bob("Bob", 1);
-	Bureaucrat	bill("Bill", 132);
+void	sectionTitle(const std::string& title) {
+	std::cout	<< std::endl
+				<< "*** " << title << " ***"
+				<< std::endl << std::endl;
+}
 
-	Bureaucrat & bob_ref = bob;
-	Bureaucrat & bill_ref = bill;
+void	testForm(Bureaucrat& bureaucrat, AForm& form) {
+	std::cout << form;
+	bureaucrat.signForm(form);
+	bureaucrat.executeForm(form);
+}
 
+int	main() {
+	Bureaucrat	burro("burro", 1);
+	Bureaucrat	burretto("burretto", 42);
+	std::cout << burro << burretto;
 
-	return (0);
+	try {
+		{
+			sectionTitle("shrubbery creation");
+			ShrubberyCreationForm form("home");
+			testForm(burro, form);
+		}
+		{
+			sectionTitle("robotomy request");
+			RobotomyRequestForm form("Bender");
+			testForm(burro, form);
+		}
+		{
+			sectionTitle("presidential pardon");
+			PresidentialPardonForm form("lrocca");
+			testForm(burro, form);
+		}
+		PresidentialPardonForm form("lrocca");
+		{
+			sectionTitle("execute unsigned form");
+			std::cout << form;
+			burro.executeForm(form);
+		}
+		{
+			sectionTitle("too low to execute");
+			burro.signForm(form);
+			burretto.executeForm(form);
+		}
+	}
+	catch (std::exception& e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 }

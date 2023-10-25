@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:44:51 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/24 15:55:32 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:17:08 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Bureaucrat
 		void				decrementGrade();
 
 		void				signForm(AForm &f);
+		void				executeForm(AForm const &form);
 
 		class GradeTooHighException : public std::exception {
 			public:
