@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/04 17:36:58 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/26 15:45:26 by avedrenn         ###   ########.fr        #
+#    Created: 2023/10/26 15:45:49 by avedrenn          #+#    #+#              #
+#    Updated: 2023/10/26 15:46:12 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animals
+NAME = converter
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = main.cpp ScalarConverter.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
