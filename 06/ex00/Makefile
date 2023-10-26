@@ -6,16 +6,16 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 17:36:58 by avedrenn          #+#    #+#              #
-#    Updated: 2023/10/25 12:47:37 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/10/25 17:48:44 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = converter
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp ScalarConverter.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-INCLUDES = Bureaucrat.hpp
+INCLUDES =
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
