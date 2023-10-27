@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:54:50 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/26 17:15:29 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:33:10 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 # include <algorithm>
 
-enum Types { error, char, int, float, double };
+enum Types { NONE, CHAR, INT, FLOAT, DOUBLE, LITERAL };
 
 bool isNumeric(std::string const &str);
 
@@ -25,7 +25,7 @@ class ScalarConverter
 {
 	public:
 		ScalarConverter();
-		ScalarConverter( ScalarConverter const &src );
+		ScalarConverter(ScalarConverter const &src);
 		~ScalarConverter();
 
 		ScalarConverter &	operator=( ScalarConverter const &src );
@@ -45,13 +45,25 @@ class ScalarConverter
 		};
 
 	private:
-		const std::string	_str;
-		int					getType();
+		std::string		_str;
+		int				_type;
 
-		char				toChar();
-		int					toInt();
-		float				toFloat();
-		double				toDouble();
+		bool			_impossible;
+
+		char			_c;
+		int				_i;
+		float			_f;
+		double			_d;
+
+		void			setType();
+
+		bool			isChar();
+		bool			isInt();
+		bool			isFloat();
+		bool			isDouble();
+		bool			isLiteral();
+
+		void			printChar();
 };
 
 #endif
