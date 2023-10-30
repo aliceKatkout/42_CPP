@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:54:50 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/27 15:33:10 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/10/30 15:33:19 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <algorithm>
+# include <limits>
 
 enum Types { NONE, CHAR, INT, FLOAT, DOUBLE, LITERAL };
 
@@ -48,7 +49,7 @@ class ScalarConverter
 		std::string		_str;
 		int				_type;
 
-		bool			_impossible;
+		//bool			_impossible;
 
 		char			_c;
 		int				_i;
@@ -63,6 +64,10 @@ class ScalarConverter
 		bool			isDouble();
 		bool			isLiteral();
 
+		char			toChar();
+		int				toInt();
+		float			toFloat();
+		double			toDouble();
 		void			printChar();
 };
 
