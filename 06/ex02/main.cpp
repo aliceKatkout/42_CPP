@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:48:08 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/03 15:55:12 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:13:37 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int main()
 	}
 
 	std::cout << "NULL - " << "Lettre generee: ";
-	identify(NULL);
+	Base *base = NULL;
+	identify(base);
+	std::cout << " | ";
+	identify(*base); // idem mais en passant par une reference
 	std::cout << std::endl;
 	return (0);
 }

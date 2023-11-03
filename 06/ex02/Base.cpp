@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:29:36 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/03 15:52:37 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:11:37 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,29 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-	identify(&p);
+	char	c = 0;
+
+	try {
+		A test = dynamic_cast<A&>(p);
+		c = 'A';
+	}
+	catch(std::exception &e) { }
+
+	try {
+		B test = dynamic_cast<B&>(p);
+		c = 'B';
+	}
+	catch(std::exception &e) { }
+
+	try {
+		C test = dynamic_cast<C&>(p);
+		c = 'C';
+	}
+	catch(std::exception &e) { }
+
+	if (c)
+		std::cout << "Reference identified as class " << c << std::endl;
+	else
+		std::cout << "Impossible to identify class of reference" << std::endl;
+	return;
 }
