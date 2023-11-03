@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:56:17 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/03 13:49:01 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/03 16:03:24 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,9 +248,7 @@ void	ScalarConverter::convert( const std::string &str )
 	}
 	try {
 		std::cout << "float : " << toFloat();
-		if (_type == LITERAL && !std::isnan(_f))
-			std::cout << std::endl;
-		else if (std::abs(_f - static_cast<int>(_f)) < 0.000001)
+		if (std::abs(_f - static_cast<int>(_f)) < 0.000001)
 			std::cout << ".0f" << std::endl;
 		else
 			std::cout << "f" << std::endl;
