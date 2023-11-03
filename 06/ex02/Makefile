@@ -6,19 +6,19 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:45:49 by avedrenn          #+#    #+#              #
-#    Updated: 2023/11/03 13:54:05 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/11/03 15:50:35 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = converter
+NAME = id
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Base.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-INCLUDES = ScalarConverter.hpp
+INCLUDES = Base.hpp
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDES)
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I $(INCLUDES)
 
 all : $(NAME)
 

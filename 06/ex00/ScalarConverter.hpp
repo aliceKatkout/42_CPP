@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:54:50 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/03 13:49:30 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:54:36 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ class ScalarConverter
 	private:
 		std::string		_str;
 		int				_type;
-
-		//bool			_impossible;
 
 		char			_c;
 		int				_i;
