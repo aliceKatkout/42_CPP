@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:54:50 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/10/30 15:33:19 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:49:30 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <algorithm>
 # include <limits>
+# include <cmath>
 
 enum Types { NONE, CHAR, INT, FLOAT, DOUBLE, LITERAL };
 
