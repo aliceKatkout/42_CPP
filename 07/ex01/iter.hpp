@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:45:12 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/03 18:56:11 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:07:08 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void iter(T *arr, int len, void (*f)(T const &)) {
 
 template <typename T>
 
-void printTab(T &elem) {
+void printTab(T const &elem) {
 	std::cout << elem << " - ";
 }
 

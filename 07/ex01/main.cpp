@@ -6,12 +6,11 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:54:17 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/03 18:55:58 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:11:24 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
-
 
 int main() {
 
@@ -22,7 +21,7 @@ int main() {
 
 	int integers[] = {1, 12, 13, 24, 25, 26, 27};
 	std::cout << "Integers :" << std::endl;
-	iter(integers, 8, printTab);
+	iter(integers, 7, printTab);
 	std::cout << std::endl;
 
 	return (0);
