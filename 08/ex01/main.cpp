@@ -6,11 +6,12 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:09:26 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/07 13:46:36 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:34:19 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <ctime>
 
 int main()
 {
@@ -26,7 +27,7 @@ int main()
 
 	try {
 		std::vector<int>	l(10000);
-		std::srand(std::time(NULL));
+		std::srand(1);
 		std::generate(l.begin(), l.end(), std::rand);
 
 		Span span(l.size());
@@ -34,7 +35,11 @@ int main()
 		span.addNumber(l.begin(), l.end());
 		//span.addNumber(42);
 
-		std::cout << "Longest span: " << span.longestSpan() << std::endl;
+		sort(l.begin(), l.end());
+		std::cout << "First value  : " << *l.begin() << std::endl;
+		std::cout << "Last value   : " << *--l.end() << std::endl;
+
+		std::cout << "Longest span : " << span.longestSpan() << std::endl;
 		std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
 
 	} catch (std::exception& e) {

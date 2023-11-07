@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:02:53 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/07 13:28:34 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:51:29 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		Span::shortestSpan() {
 		for ( std::vector<int>::const_iterator it2 = _numbers.begin(); it2 != _numbers.end(); ++it2 ) {
 			if ( it == it2 ) continue;
 			if ( std::abs( *it2 - *it ) <  static_cast<int>(res) )
-		res = std::abs( *it2 - *it );
+			res = std::abs( *it2 - *it );
 		}
 	}
 	return (res);
