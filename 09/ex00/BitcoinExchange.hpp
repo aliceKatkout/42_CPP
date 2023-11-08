@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:06:04 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/08 14:50:26 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:11:39 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ class Btc
 		Btc const &operator=(Btc const & other);
 
 		void	makeMap(std::string &database);
-		void	parseInput();
+		void	parseInput(std::ifstream &in);
+
+		bool	check_date(std::string line);
+		bool	check_rate(std::string line);
 
 
 	private :
-		std::map<std::string, double>	_map;
+		std::map<std::string, double>	_data_map;
 
 };
 

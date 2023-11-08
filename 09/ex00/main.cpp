@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:06:18 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/08 14:25:57 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:38:18 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ int main(int argc, char **argv)
 
 	std::string database = "data.csv";
 	Btc btc(database);
+	btc.parseInput(in);
 }
