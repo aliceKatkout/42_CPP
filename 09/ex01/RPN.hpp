@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:29:53 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/15 13:43:58 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/15 14:52:54 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,16 @@ class RPN
 
 		RPN const &operator=(RPN const & other);
 
-		void	parseInput(std::string line);
+		bool	parseInput(std::string line);
+		void 	execute(std::string line);
 		void	doOperation(std::string op);
-		void	doPrint();
+
+		class Error : public std::exception {
+			public :
+				const char *what() const throw() {
+					return ("Error.");
+				}
+		};
 
 	private :
 		std::stack<double>	_stack;
