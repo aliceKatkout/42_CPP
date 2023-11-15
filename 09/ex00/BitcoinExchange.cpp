@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:06:09 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/10 18:10:53 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:21:27 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Btc const &Btc::operator=(Btc const & other) {
 	return (*this);
 };
 
-double	Btc::getRate(std::string date) {
+
+double Btc::getRate(std::string date) {
 	std::map<std::string, double>::iterator it;
 	std::string	last_date;
 
@@ -35,23 +36,41 @@ double	Btc::getRate(std::string date) {
 	if (it != _data_map.end())
 		return (it->second);
 	else
-		return (-1);
+	{
+		it = _data_map.begin();
+		last_date = it->first;
+		while (it != _data_map.end())
+		{
+			if (it->first > last_date && it->first < date)
+				last_date = it->first;
+			it++;
+		}
+		it = _data_map.find(last_date);
+		if (it != _data_map.end())
+			return (it->second);
+		else
+			return (-1);
+	}
 }
 
 void	Btc::getRateList(std::ifstream &in) {
 	std::string	line;
 	double		rate;
+	size_t pos = 0;
+	double nb = 0;
 
 	std::getline(in, line);
 	while (std::getline(in, line) && !line.empty())
 	{
 		if (!parseInput(line))
 			continue ;
-		if ((rate = getRate(line.substr(0, line.find('|')))) != -1)
-			std::cout << rate << std::endl;
+		pos = line.find('|');
+		nb = std::strtod(line.substr(pos + 1, line.length()).c_str(), NULL);
+		if ((rate = getRate(line.substr(0, pos))) != -1)
+			std::cout << line.substr(0, pos) << "=> "
+			<< nb << " = " << rate * nb << std::endl;
 		else
 			std::cout << "No data" << std::endl;
-
 	}
 }
 
