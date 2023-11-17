@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/15 18:12:44 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:31:46 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,54 @@ void	PmergeMe::printVec() {
 	std::cout << std::endl;
 }
 
-template <typename T>
-void	fj_sort(T &arr) {
+bool sort_pairs(const std::pair<unsigned int,unsigned int> &left, const std::pair<unsigned int,unsigned int> &right) {
+	return left.second < right.second;
+};
+
+
+
+template <typename T, typename S>
+void	fj_sort_vector(T &arr, S &paires) {
+
+	// Determine if it's odd numbered... if so, take off a straggler
+	if (arr.size() <= 1)
+		return ;
+	bool isOdd = (arr.size() % 2 != 0) ? true : false;
+	unsigned int straggler = 0;
+
+	if (isOdd)
+		straggler = arr.pop_back();
+
+    // Then Split Array into Pairs
+    typename S <std::pair <unsigned int,unsigned int>>	pairs;
+	typename T::iterator	it = arr.begin();
+
+	while (it != arr.end()) {
+		if (*it < *(it + 1))
+			pairs.push_back(std::make_pair(*it, *(it + 1)));
+		else
+			pairs.push_back(std::make_pair(*(it + 1), *it));
+		it += 2;
+	}
+
+	// Recursively sort the pairs by their largest element
+	pairs.sort(pairs.begin(), pairs.end(), sort_pairs);
+
+
+
+	// Create main and pend sequences and merge insertion sort
+	//S = create_s(sorted_split_array, straggler, True);
+	}
+
+    // Sort each pair of elements
+    //sorted_split_array = sort_each_pair(split_array)
+
+    // Recursively sort the pairs by their largest element
+    //sort_by_larger_value(sorted_split_array)
+
+    // Create main and pend sequences and merge insertion sort
+    //S = create_s(sorted_split_array, straggler, True)
+
 	//ford johnson algorithm
 	/* if (arr.size() <= 1)
 		return ;

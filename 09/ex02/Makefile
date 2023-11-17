@@ -6,7 +6,7 @@
 #    By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:45:49 by avedrenn          #+#    #+#              #
-#    Updated: 2023/11/15 15:25:18 by avedrenn         ###   ########.fr        #
+#    Updated: 2023/11/17 17:23:20 by avedrenn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 INCLUDES = PmergeMe.hpp
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I$(INCLUDES)
+FLAGS = -Wall -Wextra -Werror  -I$(INCLUDES)
 
 all : $(NAME)
 
