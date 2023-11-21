@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/17 17:31:46 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:27:56 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,27 @@ void	PmergeMe::printVec() {
 	std::cout << std::endl;
 }
 
-bool sort_pairs(const std::pair<unsigned int,unsigned int> &left, const std::pair<unsigned int,unsigned int> &right) {
-	return left.second < right.second;
-};
 
 
+template<typename T>
+void insert_sort_pairs_vector(vector<std::pairs> &arr) {
+	unsigned int i = 1;
+	unsigned int j;
+	unsigned int tmp;
+	while (i < arr.size())
+	{
+		j = 1;
+		while (j > 0 && arr[j-1] > arr[j])
+		{
+			tmp = arr[j].second;
+			arr[j] = arr[j-1];
+			arr[j-1] = tmp;
+		}
+		i ++;
+	}
+}
 
-template <typename T, typename S>
-void	fj_sort_vector(T &arr, S &paires) {
+void	fj_sort_vector(std::vector<unsigned int> &arr) {
 
 	// Determine if it's odd numbered... if so, take off a straggler
 	if (arr.size() <= 1)
@@ -73,12 +86,14 @@ void	fj_sort_vector(T &arr, S &paires) {
 	bool isOdd = (arr.size() % 2 != 0) ? true : false;
 	unsigned int straggler = 0;
 
-	if (isOdd)
-		straggler = arr.pop_back();
+	if (isOdd) {
+		straggler = arr[arr.size() - 1];
+		arr.pop_back();
+	}
 
     // Then Split Array into Pairs
-    typename S <std::pair <unsigned int,unsigned int>>	pairs;
-	typename T::iterator	it = arr.begin();
+    std::vector<std::pair <unsigned int,unsigned int>>	pairs;
+	std::vector<unsigned int>::iterator	it = arr.begin();
 
 	while (it != arr.end()) {
 		if (*it < *(it + 1))
@@ -88,14 +103,38 @@ void	fj_sort_vector(T &arr, S &paires) {
 		it += 2;
 	}
 
-	// Recursively sort the pairs by their largest element
-	pairs.sort(pairs.begin(), pairs.end(), sort_pairs);
+	insert_sort_pairs_vector(pairs);
+	std::vector<unsigned int> pend_mins;
+	std::vector<unsigned int> main;
+
+	// Push first min and all the max in the main chain
+	main = pairs[0].first;
+	it = pairs.begin();
+	while (it != pairs.end()) {
+		main.push_back(it->second);
+		it++;
+	}
+	pairs.pop_front();
+
+	// Push all the mins in the pend chain
+	it = pairs.begin();
+	while (it != pairs.end()) {
+		pend_mins.push_back(it->first);
+		it++;
+	}
+
+	
+
+
+	//Insert sort
+
+
 
 
 
 	// Create main and pend sequences and merge insertion sort
 	//S = create_s(sorted_split_array, straggler, True);
-	}
+}
 
     // Sort each pair of elements
     //sorted_split_array = sort_each_pair(split_array)
@@ -141,4 +180,3 @@ void	fj_sort_vector(T &arr, S &paires) {
 	fj_sort(left);
 	fj_sort(right);
 	std::merge(left.begin(), left.end(), right.begin(), right.end(), arr.begin()); */
-}
