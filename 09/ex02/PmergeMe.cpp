@@ -6,13 +6,12 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/21 17:12:32 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:29:22 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void	fj_sort_vector(std::vector<unsigned int> &arr);
 PmergeMe::PmergeMe() {};
 PmergeMe::PmergeMe(PmergeMe const & other) { *this = other; };
 PmergeMe::~PmergeMe() {};
@@ -82,7 +81,7 @@ void recursive_sort_pairs(T &arr, T &sorted_pairs) {
 }
 
 template<typename T>
-int binarySearch(T &main, unsigned int item, unsigned int low, unsigned int high)
+unsigned int binarySearch(T &main, unsigned int item, unsigned int low, unsigned int high)
 {
 	if (high <= low)
 		return (item > main[low]) ? (low + 1) : low;
