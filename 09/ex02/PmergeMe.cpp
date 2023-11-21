@@ -6,12 +6,13 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/20 13:27:56 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:33:38 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+void	fj_sort_vector(std::vector<unsigned int> &arr);
 PmergeMe::PmergeMe() {};
 PmergeMe::PmergeMe(PmergeMe const & other) { *this = other; };
 PmergeMe::~PmergeMe() {};
@@ -28,53 +29,75 @@ void	PmergeMe::parseInput(char **lines) {
 		throw PmergeMe::Error();
 	for (int i = 1; lines[i]; i++) {
 		str = lines[i];
-		if (str.find_first_not_of("0123456789 ") != std::string::npos)
+		if (str.find_first_not_of("0123456789") != std::string::npos)
 			throw PmergeMe::Error();
 		_vec.push_back(std::atoi(lines[i]));
 		_deq.push_back(std::atoi(lines[i]));
 	}
+
 }
 
-void	PmergeMe::merge() {
-	fj_sort(_vec);
-	fj_sort(_deq);
+void	PmergeMe::merge_insert_sort() {
+
+	printArr(_vec);
+	std::cout << "vector sort" << std::endl;
+	std::cout << "size : " << _vec.size() << std::endl;
+	fj_sort_vector(_vec);
+	//fj_sort(_deq);
 }
 
-void	PmergeMe::printDeq() {
-	if (_deq.empty())
+template <typename T>
+void	printArr(T &arr) {
+	if (arr.empty())
 		return ;
-	for (std::deque<unsigned int>::iterator it = _deq.begin(); it != _deq.end(); it++) {
+	for (typename T::iterator it = arr.begin(); it != arr.end(); it++) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
 }
 
-void	PmergeMe::printVec() {
-	if (_vec.empty())
-		return ;
-	for (std::vector<unsigned int>::iterator it = _vec.begin(); it != _vec.end(); it++ ) {
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
-}
 
+bool compare_pairs(const std::pair<unsigned int, unsigned int>&i, const std::pair<unsigned int, unsigned int>&j)
+{
+	return i.second < j.second;
+}
 
 
 template<typename T>
-void insert_sort_pairs_vector(vector<std::pairs> &arr) {
-	unsigned int i = 1;
-	unsigned int j;
-	unsigned int tmp;
-	while (i < arr.size())
-	{
-		j = 1;
-		while (j > 0 && arr[j-1] > arr[j])
-		{
-			tmp = arr[j].second;
-			arr[j] = arr[j-1];
-			arr[j-1] = tmp;
+void recursive_sort_pairs(T &arr, T &sorted_pairs) {
+	typename T::iterator it_min;
+	while (arr.size() > 0){
+		if (arr.size() == 1) {
+			sorted_pairs.push_back(arr[0]);
+			arr.erase(arr.begin());
+			return ;
 		}
-		i ++;
+		it_min = std::min_element(arr.begin(), arr.end(), compare_pairs);
+		sorted_pairs.push_back(*it_min);
+		arr.erase(it_min);
+		recursive_sort_pairs(arr, sorted_pairs);
+	}
+}
+
+template<typename T>
+int binarySearch(T &main, unsigned int item, unsigned int low, unsigned int high)
+{
+	if (high <= low)
+		return (item > main[low]) ? (low + 1) : low;
+	unsigned int mid = (low + high) / 2;
+	if (item == main[mid])
+		return mid + 1;
+	if (item > main[mid])
+		return binarySearch(main, item, mid + 1, high);
+	return binarySearch(main, item, low, mid - 1);
+}
+
+template<typename T>
+void binary_insert(T &main, T &pend_mins) {
+	unsigned int loc;
+	for (typename T::iterator it = pend_mins.begin(); it != pend_mins.end(); it++ ) {
+		loc = binarySearch(main, *it, 0, main.size() - 1);
+		main.insert(main.begin() + loc, *it);
 	}
 }
 
@@ -103,80 +126,32 @@ void	fj_sort_vector(std::vector<unsigned int> &arr) {
 		it += 2;
 	}
 
-	insert_sort_pairs_vector(pairs);
+	std::vector<std::pair <unsigned int,unsigned int>>	sorted_pairs;
+	recursive_sort_pairs(pairs, sorted_pairs);
+
 	std::vector<unsigned int> pend_mins;
 	std::vector<unsigned int> main;
 
 	// Push first min and all the max in the main chain
-	main = pairs[0].first;
-	it = pairs.begin();
-	while (it != pairs.end()) {
-		main.push_back(it->second);
-		it++;
+	main.push_back(sorted_pairs[0].first);
+	std::vector<std::pair <unsigned int,unsigned int>>::iterator pit = sorted_pairs.begin();
+	while (pit != sorted_pairs.end()) {
+		main.push_back(pit->second);
+		pit++;
 	}
-	pairs.pop_front();
+	sorted_pairs.erase(sorted_pairs.begin());
 
 	// Push all the mins in the pend chain
-	it = pairs.begin();
-	while (it != pairs.end()) {
-		pend_mins.push_back(it->first);
-		it++;
+	pit = sorted_pairs.begin();
+	while (pit != sorted_pairs.end()) {
+		pend_mins.push_back(pit->first);
+		pit++;
 	}
+	if (isOdd)
+		pend_mins.push_back(straggler);
 
-	
-
-
-	//Insert sort
-
-
-
-
-
-	// Create main and pend sequences and merge insertion sort
-	//S = create_s(sorted_split_array, straggler, True);
+	// Insertion sort the pend chain
+	binary_insert(main, pend_mins);
+	std::cout << "size : " << main.size() << std::endl;
+	printArr(main);
 }
-
-    // Sort each pair of elements
-    //sorted_split_array = sort_each_pair(split_array)
-
-    // Recursively sort the pairs by their largest element
-    //sort_by_larger_value(sorted_split_array)
-
-    // Create main and pend sequences and merge insertion sort
-    //S = create_s(sorted_split_array, straggler, True)
-
-	//ford johnson algorithm
-	/* if (arr.size() <= 1)
-		return ;
-	typename T::iterator mid = arr.begin() + arr.size() / 2;
-	T left(arr.begin(), mid);
-	T right(mid, arr.end());
-
-	typename T::iterator it_right = right.begin();
-	for (typename T::iterator it_left = left.begin(); it_left != left.end(); it_left++)
-	{
-		if (*it_left > *it_right)
-		{
-
-		}
-
-	} */
-
-	/* if (arr.size() <= 1)
-		return ;
-	typename T::iterator mid = arr.begin() + arr.size() / 2;
-	T left(arr.begin(), mid);
-	T right(mid, arr.end());
-	std::cout << "left :" << std::endl;
-	for (typename T::iterator it = left.begin(); it != left.end(); it++) {
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
-	std::cout << "right :" << std::endl;
-	for (typename T::iterator it2 = right.begin(); it2 != right.end(); it2++) {
-		std::cout << *it2 << " ";
-	}
-	std::cout << std::endl;
-	fj_sort(left);
-	fj_sort(right);
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), arr.begin()); */
