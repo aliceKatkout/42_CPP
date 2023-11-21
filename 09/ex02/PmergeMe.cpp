@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/21 16:33:38 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:12:32 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ void	PmergeMe::merge_insert_sort() {
 	printArr(_vec);
 	std::cout << "vector sort" << std::endl;
 	std::cout << "size : " << _vec.size() << std::endl;
-	fj_sort_vector(_vec);
-	//fj_sort(_deq);
+	fj_sort(_vec, _vpairs);
+	std::cout << "deque sort" << std::endl;
+	std::cout << "size : " << _deq.size() << std::endl;
+	fj_sort(_deq, _dpairs);
 }
 
 template <typename T>
@@ -101,7 +103,8 @@ void binary_insert(T &main, T &pend_mins) {
 	}
 }
 
-void	fj_sort_vector(std::vector<unsigned int> &arr) {
+template<typename T, typename U>
+void	fj_sort(T &arr, U &pairs) {
 
 	// Determine if it's odd numbered... if so, take off a straggler
 	if (arr.size() <= 1)
@@ -115,9 +118,7 @@ void	fj_sort_vector(std::vector<unsigned int> &arr) {
 	}
 
     // Then Split Array into Pairs
-    std::vector<std::pair <unsigned int,unsigned int>>	pairs;
-	std::vector<unsigned int>::iterator	it = arr.begin();
-
+	typename T::iterator	it = arr.begin();
 	while (it != arr.end()) {
 		if (*it < *(it + 1))
 			pairs.push_back(std::make_pair(*it, *(it + 1)));
@@ -126,15 +127,15 @@ void	fj_sort_vector(std::vector<unsigned int> &arr) {
 		it += 2;
 	}
 
-	std::vector<std::pair <unsigned int,unsigned int>>	sorted_pairs;
+	U sorted_pairs;
 	recursive_sort_pairs(pairs, sorted_pairs);
 
-	std::vector<unsigned int> pend_mins;
-	std::vector<unsigned int> main;
-
 	// Push first min and all the max in the main chain
+	T pend_mins;
+	T main;
+
 	main.push_back(sorted_pairs[0].first);
-	std::vector<std::pair <unsigned int,unsigned int>>::iterator pit = sorted_pairs.begin();
+	typename U::iterator pit = sorted_pairs.begin();
 	while (pit != sorted_pairs.end()) {
 		main.push_back(pit->second);
 		pit++;
@@ -152,6 +153,5 @@ void	fj_sort_vector(std::vector<unsigned int> &arr) {
 
 	// Insertion sort the pend chain
 	binary_insert(main, pend_mins);
-	std::cout << "size : " << main.size() << std::endl;
 	printArr(main);
 }
