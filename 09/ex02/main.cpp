@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 16:36:02 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/21 16:28:32 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:04:22 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		pm.parseInput(argv);
 
 		pm.merge_insert_sort();
-
+		
 
 
 	} catch (std::exception &e) {

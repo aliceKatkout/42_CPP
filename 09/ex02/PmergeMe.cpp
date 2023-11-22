@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/21 17:29:22 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:50:39 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,18 @@ void recursive_sort_pairs(T &arr, T &sorted_pairs) {
 }
 
 template<typename T>
-unsigned int binarySearch(T &main, unsigned int item, unsigned int low, unsigned int high)
+unsigned int binarySearch(T main, unsigned int item, unsigned int low, unsigned int high)
 {
-	if (high <= low)
-		return (item > main[low]) ? (low + 1) : low;
+	if (high <= low || low < 0)
+		return (low);
 	unsigned int mid = (low + high) / 2;
+	if ((mid < 0 || mid >= main.size()))
+		return (low);
 	if (item == main[mid])
-		return mid + 1;
+		return mid;
 	if (item > main[mid])
 		return binarySearch(main, item, mid + 1, high);
-	return binarySearch(main, item, low, mid - 1);
+	return binarySearch(main, item, low, mid);
 }
 
 template<typename T>
@@ -153,4 +155,5 @@ void	fj_sort(T &arr, U &pairs) {
 	// Insertion sort the pend chain
 	binary_insert(main, pend_mins);
 	printArr(main);
+	is_sorted(main.begin(), main.end()) ? std::cout << "sorted" << std::endl : std::cout << "not sorted" << std::endl;
 }
