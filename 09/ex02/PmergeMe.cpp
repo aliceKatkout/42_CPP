@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/22 13:50:39 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:23:25 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,23 @@ void	PmergeMe::parseInput(char **lines) {
 
 void	PmergeMe::merge_insert_sort() {
 
+	std::cout << "Before : " << std::endl;
 	printArr(_vec);
-	std::cout << "vector sort" << std::endl;
-	std::cout << "size : " << _vec.size() << std::endl;
+
+	std::clock_t start = std::clock();
+	std::cout << std::endl << "[Vector] - After : " << std::endl;
 	fj_sort(_vec, _vpairs);
-	std::cout << "deque sort" << std::endl;
-	std::cout << "size : " << _deq.size() << std::endl;
+	std::clock_t end = std::clock();
+	double elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 10000;
+	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : " << elapsed_time << " milliseconds." << std::endl;
+
+	start = std::clock();
+	std::cout << std::endl << "[Deque] - After : " << std::endl;
 	fj_sort(_deq, _dpairs);
+	end = std::clock();
+	elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 10000; 
+	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : " << elapsed_time <<  " milliseconds." << std::endl;
+
 }
 
 template <typename T>
@@ -109,7 +119,10 @@ void	fj_sort(T &arr, U &pairs) {
 
 	// Determine if it's odd numbered... if so, take off a straggler
 	if (arr.size() <= 1)
+	{
+		printArr(arr);
 		return ;
+	}
 	bool isOdd = (arr.size() % 2 != 0) ? true : false;
 	unsigned int straggler = 0;
 
