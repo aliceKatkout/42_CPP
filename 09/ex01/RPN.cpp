@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:32:10 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/15 15:18:29 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:39:34 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	RPN::execute(std::string line) {
 				doOperation(op);
 			else
 			{
+				if (op.find_first_not_of("0123456789") != std::string::npos)
+					throw Error();
 				nb = std::strtod(op.c_str(), NULL);
 				if (nb > 9 || nb < 0)
 					throw Error();

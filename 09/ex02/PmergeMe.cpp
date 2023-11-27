@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:29:59 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/27 14:23:25 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:00:37 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	PmergeMe::merge_insert_sort() {
 	std::cout << std::endl << "[Deque] - After : " << std::endl;
 	fj_sort(_deq, _dpairs);
 	end = std::clock();
-	elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 10000; 
+	elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 10000;
 	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : " << elapsed_time <<  " milliseconds." << std::endl;
 
 }
@@ -95,6 +95,8 @@ unsigned int binarySearch(T main, unsigned int item, unsigned int low, unsigned 
 {
 	if (high <= low || low < 0)
 		return (low);
+	if (item > main[high])
+		return (high + 1);
 	unsigned int mid = (low + high) / 2;
 	if ((mid < 0 || mid >= main.size()))
 		return (low);
@@ -119,6 +121,11 @@ void	fj_sort(T &arr, U &pairs) {
 
 	// Determine if it's odd numbered... if so, take off a straggler
 	if (arr.size() <= 1)
+	{
+		printArr(arr);
+		return ;
+	}
+	if (is_sorted(arr.begin(), arr.end()))
 	{
 		printArr(arr);
 		return ;
@@ -168,5 +175,4 @@ void	fj_sort(T &arr, U &pairs) {
 	// Insertion sort the pend chain
 	binary_insert(main, pend_mins);
 	printArr(main);
-	is_sorted(main.begin(), main.end()) ? std::cout << "sorted" << std::endl : std::cout << "not sorted" << std::endl;
 }

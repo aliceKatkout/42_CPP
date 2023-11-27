@@ -6,7 +6,7 @@
 /*   By: avedrenn <avedrenn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 13:29:53 by avedrenn          #+#    #+#             */
-/*   Updated: 2023/11/15 14:52:54 by avedrenn         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:46:31 by avedrenn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cmath>
 # include <stack>
 # include <cstdlib>
+# include <list>
 
 class RPN
 {
@@ -40,7 +41,7 @@ class RPN
 		};
 
 	private :
-		std::stack<double>	_stack;
+		std::stack<double, std::list<double> >	_stack;
 		double				_result;
 };
 
